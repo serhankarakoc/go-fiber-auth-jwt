@@ -44,7 +44,6 @@ func validUser(id string, p string) bool {
 	return true
 }
 
-// GetUser get a user
 func GetUser(c *fiber.Ctx) error {
 	id := c.Params("id")
 	db := database.DB
@@ -56,7 +55,6 @@ func GetUser(c *fiber.Ctx) error {
 	return c.JSON(fiber.Map{"status": "success", "message": "Product found", "data": user})
 }
 
-// CreateUser new user
 func CreateUser(c *fiber.Ctx) error {
 	type NewUser struct {
 		Username string `json:"username"`
@@ -89,7 +87,6 @@ func CreateUser(c *fiber.Ctx) error {
 	return c.JSON(fiber.Map{"status": "success", "message": "Created user", "data": newUser})
 }
 
-// UpdateUser update user
 func UpdateUser(c *fiber.Ctx) error {
 	type UpdateUserInput struct {
 		Names string `json:"names"`
